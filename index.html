@@ -249,7 +249,9 @@ button{
 
 <body>
 <div class="wrap">
+
   <div class="hero">
+
     <div class="logos">
 
       <div class="logoBox">
@@ -262,7 +264,7 @@ button{
       </div>
 
       <div class="logoBox">
-        <img src="https://i.postimg.cc/52d6Vx6T/moe-logo.png" alt="شعار وزارة التعليم">
+        <img src="https://up6.cc/2026/05/177850928377751.png" alt="شعار وزارة التعليم">
       </div>
 
     </div>
@@ -271,9 +273,11 @@ button{
       <div class="pill">اسم المعلم: <b>مقرن المطيري</b></div>
       <div class="pill">مدير المدرسة: <b>توفيق العقيلي</b></div>
     </div>
+
   </div>
 
   <div class="card">
+
     <div class="form">
 
       <div>
@@ -299,7 +303,10 @@ button{
 
     <div id="result" class="result"></div>
 
-    <div class="footer">© 2026 — برمجة وتنفيذ الأستاذ مقرن المطيري</div>
+    <div class="footer">
+      © 2026 — برمجة وتنفيذ الأستاذ مقرن المطيري
+    </div>
+
   </div>
 </div>
 
@@ -359,6 +366,7 @@ function level(score){
 }
 
 function searchStudent(){
+
   const nid = document.getElementById("nid").value.replace(/\D/g,"");
   const className = document.getElementById("classSel").selectedOptions[0].textContent;
   const data = document.getElementById("classSel").value === "c1" ? class1 : class2;
@@ -366,7 +374,12 @@ function searchStudent(){
 
   if(nid.length !== 10){
     box.className = "result show";
-    box.innerHTML = `<span class="badge ns">تنبيه</span><div class="msg">فضلاً اكتب رقم الهوية الوطنية المكون من 10 أرقام.</div>`;
+    box.innerHTML = `
+      <span class="badge ns">تنبيه</span>
+      <div class="msg">
+      فضلاً اكتب رقم الهوية الوطنية المكون من 10 أرقام.
+      </div>
+    `;
     return;
   }
 
@@ -374,11 +387,17 @@ function searchStudent(){
 
   if(!st){
     box.className = "result show";
-    box.innerHTML = `<span class="badge ns">غير موجود</span><div class="msg">لم يتم العثور على طالب بهذه الهوية في الفصل المحدد.</div>`;
+    box.innerHTML = `
+      <span class="badge ns">غير موجود</span>
+      <div class="msg">
+      لم يتم العثور على طالب بهذه الهوية في الفصل المحدد.
+      </div>
+    `;
     return;
   }
 
   const l = level(st.score);
+
   const isAzzam = st.id === "1168543955";
 
   const specialMsg = `الطالب المبدع عزام عبدالله اللذيذ
@@ -388,13 +407,32 @@ function searchStudent(){
   box.className = "result show";
 
   box.innerHTML = `
-    <span class="badge ${l.cls}">التقدير: ${l.label}</span>
+    <span class="badge ${l.cls}">
+      التقدير: ${l.label}
+    </span>
 
     <div class="infoGrid">
-      <div class="info"><span>اسم الطالب</span><b>${st.name}</b></div>
-      <div class="info"><span>رقم الهوية</span><b>${st.id}</b></div>
-      <div class="info"><span>الفصل</span><b>${className}</b></div>
-      <div class="info"><span>الدرجة</span><b>${st.score} / 20</b></div>
+
+      <div class="info">
+        <span>اسم الطالب</span>
+        <b>${st.name}</b>
+      </div>
+
+      <div class="info">
+        <span>رقم الهوية</span>
+        <b>${st.id}</b>
+      </div>
+
+      <div class="info">
+        <span>الفصل</span>
+        <b>${className}</b>
+      </div>
+
+      <div class="info">
+        <span>الدرجة</span>
+        <b>${st.score} / 20</b>
+      </div>
+
     </div>
 
     <div class="msg ${isAzzam ? "special" : ""}">
@@ -404,7 +442,9 @@ ${isAzzam ? specialMsg : l.msg}
 }
 
 document.getElementById("nid").addEventListener("keydown", e=>{
-  if(e.key === "Enter") searchStudent();
+  if(e.key === "Enter"){
+    searchStudent();
+  }
 });
 </script>
 
